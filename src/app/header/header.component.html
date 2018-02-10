@@ -1,22 +1,22 @@
 <nav class="navbar navbar-default">
     <div class="container-fluid">
       <div class="navbar-header">
-        <a class="navbar-brand" href="#">Agza</a>
+        <a class="navbar-brand">Agza</a>
       </div>
       <ul class="nav navbar-nav">
-        <li (click)="empresaModulo()" [ngClass]="{active: modEmp === true}">
+        <li (click)="selectModule(1)" [ngClass]="{active: active === 1}">
           <a>
             <span class="glyphicon glyphicon-briefcase"></span>
              &nbsp;Empresas
           </a>
         </li>
-        <li  (click)="usuarioModulo()" [ngClass]="{active: modUsr === true}">
+        <li  (click)="selectModule(2)" [ngClass]="{active: active === 2}">
           <a>
             <span class="glyphicon glyphicon-user"></span>
             &nbsp;Usuarios
           </a>
         </li>
-        <li (click)="procesoModulo()" [ngClass]="{active: modPro === true}">
+        <li (click)="selectModule(3)" [ngClass]="{active: active === 3}">
           <a>
             <span class="glyphicon glyphicon-tasks" ></span>
             &nbsp;Procesos
@@ -29,7 +29,7 @@
           <a class="dropdown-toggle"> <span class="glyphicon glyphicon-user"></span> Usuario</a>
           <ul class="dropdown-menu">
             <li>
-              <a>
+              <a routerLink="/">
                 <span class="glyphicon glyphicon-log-out"></span> Cerrar sesión
               </a>
             </li>

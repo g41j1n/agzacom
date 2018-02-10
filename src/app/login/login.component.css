@@ -23,7 +23,6 @@
 }
 form#login {
     width: 90%;
-    height: 60%;
     margin: 2vh auto;
 }
 fieldset {
@@ -44,4 +43,7 @@ input:focus{
 button.btn.btn-primary.btn-lg {
     width: 90%;
     margin: 20px;
+}
+input.ng-touched.ng-invalid{
+    border-bottom: 1px solid orangered;
 }   

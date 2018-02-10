@@ -1,0 +1,12 @@
+.noContainer{
+    width:100%;
+    height:50vw;
+    background-image: url("http://www.agzasistemas.com/web/wp-content/uploads/2013/11/logo-sitio5.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 16px;
+    border:2px solid #3F51B5;
+    opacity: 0.6;
+    
+
+}

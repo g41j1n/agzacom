@@ -1,8 +1,13 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { FormsModule } from '@angular/forms';
+import { HttpModule } from '@angular/http';
 
 import { EmpresasService } from './shared/empresas.service';
+import { ProcesosService } from './shared/procesos.service';
+import { ServerService } from './shared/server.service';
+import { HeaderHandler } from './shared/header.service';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
@@ -44,9 +49,11 @@ const appRoutes: Routes = [
   ],
   imports: [
     BrowserModule,
+    FormsModule,
+    HttpModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [EmpresasService],
+  providers: [EmpresasService, HeaderHandler, ServerService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

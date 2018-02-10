@@ -1,6 +1,9 @@
 <aside>
-  <app-aside-emp></app-aside-emp>
-  <app-aside-usr></app-aside-usr>
-  <app-aside-pro></app-aside-pro>
+  <div [ngSwitch]="selected">
+    <app-aside-emp *ngSwitchCase="1"></app-aside-emp>
+    <app-aside-usr *ngSwitchCase="2"></app-aside-usr>
+    <app-aside-pro *ngSwitchCase="3"></app-aside-pro>
+    <div *ngSwitchDefault class="asideDefault"></div>
+  </div>
 </aside>
   

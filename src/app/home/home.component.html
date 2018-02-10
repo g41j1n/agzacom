@@ -2,9 +2,12 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-9">
-           <app-cont-emp></app-cont-emp>
-           <app-cont-usr></app-cont-usr>
-           <app-cont-pro></app-cont-pro>
+            <div [ngSwitch]="selected">
+                <app-cont-emp *ngSwitchCase="1"></app-cont-emp>
+                <app-cont-usr *ngSwitchCase="2"></app-cont-usr>
+                <app-cont-pro *ngSwitchCase="3"></app-cont-pro>
+                <div *ngSwitchDefault class="noContainer"></div>
+            </div>
         </div>
         <div class="col-md-3">
             <app-aside></app-aside>

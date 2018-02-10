@@ -3,18 +3,59 @@
     <div class="logo">
       <img src="http://www.agzasistemas.com/web/wp-content/uploads/2013/11/logo-sitio5.png" alt="Logo Empresa">
     </div>
-    <form action="" id="login">
+    <form id="login" (ngSubmit)="onSubmit(f)" #f="ngForm">
       <fieldset>
-        <label for="userlogin"><h4><span class="glyphicon glyphicon-user"></span> Correo electronico</h4></label><br>
-        <input type="email" required autocomplete="email" id="userlogin">
+        <label for="usrlgn">
+          <h4>
+            <i class="fa fa-user-circle fa-fw fa-2x"></i>
+              <strong>Correo electronico</strong>
+          </h4>
+        </label>
+        <input 
+        ngModel
+        name="usrlgn"
+        id="usrlgn" 
+        type="email" 
+        autocomplete="email" 
+        required 
+        email
+        #usr="ngModel"
+        >
+        
       </fieldset>
       <fieldset>
-        <label for="passwordlogin"><h4><span class="glyphicon glyphicon-asterisk"></span> Contraseña</h4></label><br>
-        <input type="password" required autocomplete="current-password" id="passwordlogin">
+        <label for="passwordlogin">
+          <h4>
+            <i class="fa fa-asterisk fa-fw fa-2x"></i>
+            <strong>Contraseña</strong>
+          </h4>
+        </label>
+        <input 
+        ngModel
+        name="pwdlgn"
+        required
+        id="pwdlgn"
+        type="password"
+        autocomplete="current-password"
+        #pss="ngModel"
+        >
+        
       </fieldset>
       <fieldset>
-        <button class="btn btn-primary btn-lg"><span  class="glyphicon glyphicon-send"></span> Entrar </button>
+          <p *ngIf="!usr.valid && usr.touched" class="help-block">
+              Este no es un correo valido
+            </p>
+            <p *ngIf="!pss.valid && pss.touched" class="help-block">
+                La contraseña debe de ser de mas de 3 caracteres
+              </p>
+      </fieldset>
+      <fieldset>
+        <!-- <button class="btn btn-primary btn-lg" routerLink="home"><span  class="glyphicon glyphicon-send"></span> Entrar </button> -->
+        <button class="btn btn-primary btn-lg" [disabled]="!f.valid">
+          <span  class="glyphicon glyphicon-send"></span> Entrar
+        </button>
       </fieldset>
     </form>
+    
   </div>
 </div>
