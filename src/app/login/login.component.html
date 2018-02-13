@@ -51,11 +51,13 @@
       </fieldset>
       <fieldset>
         <!-- <button class="btn btn-primary btn-lg" routerLink="home"><span  class="glyphicon glyphicon-send"></span> Entrar </button> -->
-        <button class="btn btn-primary btn-lg" [disabled]="!f.valid">
+        <button class="btn btn-primary btn-block" [disabled]="!f.valid">
           <span  class="glyphicon glyphicon-send"></span> Entrar
         </button>
       </fieldset>
     </form>
-    
+    <a class="btn bnt-lg btn-info btn-block" routerLink="/reset">
+      <i class="fa fa-envelope-square fa-fw fa-pull-left fa-2x"></i> Solicitar Nueva Contraseña
+    </a>
   </div>
 </div>

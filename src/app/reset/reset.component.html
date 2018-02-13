@@ -1,0 +1,29 @@
+<div class="backdrop">
+  <div class="background">
+    <form (ngSubmit)="onReset(f)" #f="ngForm">
+      <fieldset>
+        <label for="rstMail">Correo Electronico</label>
+        <br>
+        <input 
+        ngModel
+        email
+        required
+        type="email" 
+        name="rstMail" 
+        id="rstMail"
+        autocomplete="email"
+        #mail="ngModel" 
+        >
+      </fieldset>
+      <fieldset *ngIf="!mail.valid && mail.touched" class="help-block">
+              Este no es un correo valido
+      </fieldset>
+      <fieldset>
+        <button class="btn btn-warning btn-block"><i class="fa fa-envelope-square fa-fw fa-2x"></i> Restablecer</button>
+      </fieldset>
+      <fieldset>
+          <button class="btn btn-danger btn-block" routerLink="/"><i class="fa fa-undo fa-fw fa-2x"></i> Regresar</button>
+        </fieldset>
+    </form>
+  </div>
+</div>

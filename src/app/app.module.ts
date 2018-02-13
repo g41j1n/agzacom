@@ -24,10 +24,13 @@ import { EmpresaItemComponent } from './aside-emp/empresa-item/empresa-item.comp
 import { UsuarioItemComponent } from './aside-usr/usuario-item/usuario-item.component';
 import { ProcesoItemComponent } from './aside-pro/proceso-item/proceso-item.component';
 import { DropdownDirective } from './shared/dropdown.directive';
+import { ChangeComponent } from './home/change/change.component';
+import { ResetComponent } from './reset/reset.component';
 
 const appRoutes: Routes = [
   { path: '', component: LoginComponent },
-  { path: 'home', component: HomeComponent }
+  { path: 'reset', component: ResetComponent },
+  { path: 'home/:first', component: HomeComponent }
 ];
 @NgModule({
   declarations: [
@@ -45,7 +48,9 @@ const appRoutes: Routes = [
     EmpresaItemComponent,
     UsuarioItemComponent,
     ProcesoItemComponent,
-    DropdownDirective
+    DropdownDirective,
+    ChangeComponent,
+    ResetComponent
   ],
   imports: [
     BrowserModule,

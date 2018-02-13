@@ -28,11 +28,12 @@
         <li class="dropdown" appDropdown>
           <a class="dropdown-toggle"> <span class="glyphicon glyphicon-user"></span> Usuario</a>
           <ul class="dropdown-menu">
-            <li>
-              <a routerLink="/">
-                <span class="glyphicon glyphicon-log-out"></span> Cerrar sesión
-              </a>
-            </li>
+            <li (click)="onLogout()"><a>
+              <span class="glyphicon glyphicon-log-out"></span> Cerrar sesión
+            </a> </li>
+            <li (click)="onSelectPwd()"><a>
+              <span class="glyphicon glyphicon-asterisk"></span> Cambiar contraseña
+             </a> </li>
           </ul>
         </li>
       </ul>
