@@ -26,11 +26,14 @@ import { ProcesoItemComponent } from './aside-pro/proceso-item/proceso-item.comp
 import { DropdownDirective } from './shared/dropdown.directive';
 import { ChangeComponent } from './home/change/change.component';
 import { ResetComponent } from './reset/reset.component';
-
+import { AuthGuard } from './auth-guard.service';
+import { AuthService } from './auth.service';
 const appRoutes: Routes = [
   { path: '', component: LoginComponent },
   { path: 'reset', component: ResetComponent },
-  { path: 'home/:first', component: HomeComponent }
+  { path: 'home/:first', canActivate: [AuthGuard], component: HomeComponent},
+  { path: '**', redirectTo: '' }
+
 ];
 @NgModule({
   declarations: [
@@ -58,7 +61,7 @@ const appRoutes: Routes = [
     HttpModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [EmpresasService, HeaderHandler, ServerService],
+  providers: [EmpresasService, HeaderHandler, ServerService, AuthService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

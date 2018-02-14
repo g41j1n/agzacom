@@ -10,20 +10,27 @@ import { Router } from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
 active: number;
+uName: string;
   constructor( private hHandler: HeaderHandler, private server: ServerService, private router: Router) { }
 
   ngOnInit() {
+    this.uName = sessionStorage.getItem('name');
   }
   selectModule(mod: number) {
     this.hHandler.moduloSelect.emit(mod);
     this.active = mod;
   }
   onLogout() {
-    this.server.logoutServer().subscribe(
+    this.server.logoutServer(sessionStorage.getItem('token')).subscribe(
       (res: Response)  => {
-        console.log(res);
-        // Validar la respuesta antes de redirigir
-        // this.router.navigate(['/']);
+        const data = res.json();
+        if (data.responseCode === '00') {
+          // mostrar mensaje de salida
+          sessionStorage.clear();
+          this.router.navigate(['/']);
+        } else {
+          // mostrar mensaje de error
+        }
       },
       (error) => console.log(error)
     );

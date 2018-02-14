@@ -17,6 +17,7 @@ pwset = false;
    }
 
   ngOnInit() {
+    console.log(sessionStorage.getItem('token'));
     this.pwdI = this.route.snapshot.params['first'];
     if (typeof this.pwdI !== 'string') {
       alert('error');

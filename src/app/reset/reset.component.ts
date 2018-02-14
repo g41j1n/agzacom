@@ -20,12 +20,24 @@ export class ResetComponent implements OnInit {
     this.server.resetPass(form.value).subscribe(
       (res: Response) => {
         const data = res.json();
-        console.log(data);
-
+        console.log(data.responseCode);
+        const rp = data.responseCode;
+        if (rp !== '0') {
+          this.onError(data);
+        } else {
+          this.onSuccess(data);
+        }
       },
       (err) => console.log(err)
     );
 
+  }
+  onSuccess(data) {
+    console.log(data.message);
+    this.router.navigate(['/']);
+  }
+  onError(data) {
+    console.log(data.message);
   }
 
 }

@@ -8,8 +8,8 @@ urlM = 'http://192.168.0.22/SISV1/index.php/Agzapp';
   loginServer(data) {
    return this.http.get(this.urlM + '/LoginApp?email=' + data.usrlgn + '&password=' + data.pwdlgn);
   }
-  logoutServer() {
-   return this.http.get(this.urlM + '/closeSession');
+  logoutServer(data) {
+   return this.http.get(this.urlM + '/CloseSession?token=' + data);
   }
   resetPass(data) {
    return this.http.get(this.urlM + '/recoveryPassword?email=' + data.rstMail);

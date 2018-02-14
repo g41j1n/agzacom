@@ -19,11 +19,11 @@ export class EmpresaItemComponent implements OnInit {
   test(data) {
     console.log(data);
   }
-  nuevaEmpresa(name: string, status: string, logo: string) {
-    this.empresasService.addEmpresa(name, status, logo);
+  nuevaEmpresa(id: string, name: string, rfc: string, logo: string) {
+    this.empresasService.addEmpresa(id, name, rfc, logo);
   }
   onSelectEmpresa(empresa) {
-    this.empresasService.empresaSelect.emit({id: empresa.id, name: empresa.name, status: empresa.status, logo: empresa.logo});
+    this.empresasService.empresaSelect.emit({id: empresa.id, name: empresa.name, rfc: empresa.rfc, logo: empresa.logo});
   }
 
 }

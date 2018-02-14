@@ -15,27 +15,14 @@ export class EmpresasService {
 //         logo: 'https://d2gg9evh47fn9z.cloudfront.net/800px_COLOURBOX4543988.jpg'
 //     }
 // ];
-private empresas: Empresa[] = [
-    new Empresa(
-        1,
-        'Nombre empresa',
-        'Nombre Proceso',
-        'https://d2gg9evh47fn9z.cloudfront.net/800px_COLOURBOX4543988.jpg'
-    ),
-    new Empresa(
-        2,
-        'Empresa 2',
-        'Proceso 2',
-        'https://d2gg9evh47fn9z.cloudfront.net/800px_COLOURBOX4543988.jpg'
-    ),
-];
-empresaSelect = new EventEmitter<{id: number, name: string, status: string, logo: string}>();
- addEmpresa( name: string, status: string, logo: string ) {
-    this.empresas.push({id: 3, name: name, status: status, logo: logo});
+private empresas: Empresa[] = [];
+empresaSelect = new EventEmitter<{id: number, name: string, rfc: string, logo: string}>();
+ addEmpresa(id: string, name: string, rfc: string, logo: string ) {
+    this.empresas.push({id: id, name: name, rfc: rfc, logo: logo});
  }
- editEmpresa(id: number, name: string, status: string, logo: string) {
+ editEmpresa(id: number, name: string, rfc: string, logo: string) {
     this.empresas[id].name = name;
-    this.empresas[id].status = status;
+    this.empresas[id].rfc = rfc;
     this.empresas[id].logo = logo;
 
  }

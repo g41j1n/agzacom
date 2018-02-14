@@ -1,9 +1,9 @@
 <li class="list-group-item clearfix entEle" *ngFor="let emp of empresas" (click)="onSelectEmpresa(emp)">
-  <div class="pull-left">
+  <div>
     <img [src]="emp.logo" alt="" height="50px">
   </div>
-  <div class="pull-right"  >
+  <div class="userDataBox">
     <p><strong>{{ emp.name}}</strong></p>
-    <p>{{ emp.status}}</p>
+    <p>{{ emp.rfc}}</p>
   </div>
 </li>

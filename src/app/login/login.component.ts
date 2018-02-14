@@ -3,6 +3,9 @@ import { NgForm } from '@angular/forms';
 import { Response } from '@angular/http';
 import { ServerService } from '../shared/server.service';
 import { Router } from '@angular/router';
+import { AuthService } from '../auth.service';
+import { Empresa } from '../shared/empresa.model';
+import { EmpresasService } from '../shared/empresas.service';
 
 @Component({
   selector: 'app-login',
@@ -11,11 +14,12 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 valid = true;
-dummy = [{
-        email: 'e@e.com',
-        password: 2
-        }];
-  constructor(private server: ServerService, private router: Router) { }
+private empresas: Empresa[];
+  constructor(private server: ServerService,
+              private router: Router,
+              private authService: AuthService,
+              private empresasService: EmpresasService
+            ) { }
 
   ngOnInit() {
   }
@@ -39,8 +43,18 @@ dummy = [{
     );
   }
   onValidation(res) {
-    console.log('entrada');
-    console.log(res.token);
+    // console.log('entrada');
+    // console.log(res);
+    const emp = res.listCompanies;
+    emp.map(
+      (ele) => { this.empresasService.addEmpresa(ele.idEmpresaUsuario, ele.nombreEmpresa,  ele.Rfc, ele.urlLogo);
+      console.log(ele);
+    }
+    );
+    sessionStorage.setItem('token', res.token);
+    sessionStorage.setItem('name', res.name);
+    sessionStorage.setItem('email', res.email);
+    this.authService.login();
     this.router.navigate(['/home/' + res.firstLogin]);
   }
   onError(error) {

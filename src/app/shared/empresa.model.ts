@@ -1,8 +1,8 @@
 export class Empresa {
     constructor(
-        public id: number,
+        public id: string,
         public name: string,
-        public status: string,
+        public rfc: string,
         public logo: string
     ) {}
 }

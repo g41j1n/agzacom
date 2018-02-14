@@ -1,0 +1,17 @@
+.entEle{
+    margin:1vh 1vw;
+    border-bottom: 3px solid orange;
+    border-radius: 6px;
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.entEle:hover{
+    border-bottom: 3px solid cyan;
+}
+.entEle.sele{
+    border-bottom: 3px solid cyan;
+}
+.entEle div{
+    max-width: 40%;
+}
