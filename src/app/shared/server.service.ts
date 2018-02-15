@@ -20,8 +20,8 @@ urlM = 'http://192.168.0.22/SISV1/index.php/Agzapp';
   getEmpresas() {
     return this.http.get(this.urlM + '/getEmpresas');
   }
-  getPeriods() {
-    return this.http.get(this.urlM + '/consultPeriods');
+  getEnterprisePeriods(data) {
+    return this.http.get(this.urlM + '/consultPeriods?token=' + sessionStorage.getItem('token') + '&idCompany=' + data);
   }
   createPeriod() {
     return this.http.get(this.urlM + '/CreatePeriod');

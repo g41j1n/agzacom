@@ -47,10 +47,9 @@ private empresas: Empresa[];
     // console.log(res);
     const emp = res.listCompanies;
     emp.map(
-      (ele) => { this.empresasService.addEmpresa(ele.idEmpresaUsuario, ele.nombreEmpresa,  ele.Rfc, ele.urlLogo);
-      console.log(ele);
-    }
-    );
+      (ele) => {
+        this.empresasService.addEmpresa(ele.idEmpresaUsuario, ele.nombreEmpresa,  ele.Rfc, ele.urlLogo);
+      });
     sessionStorage.setItem('token', res.token);
     sessionStorage.setItem('name', res.name);
     sessionStorage.setItem('email', res.email);

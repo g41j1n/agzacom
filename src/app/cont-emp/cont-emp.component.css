@@ -1,0 +1,59 @@
+.col-lg-12.well {
+    border-radius: 16px;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+.pageheader{
+    background: #03A9F4;
+    font-size: 1.4em;
+    color: #fafafa;
+    padding-left:10px;
+    height: 60px;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom: 3vh;
+    border-radius: 6px;
+}
+.badge{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width:240px;
+    height: 60px;
+    background:red;
+    border-radius:10px;
+    margin:1vw 2vh;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+.sidebox{
+    float:right;
+    height: inherit;
+    width:70%;
+}
+.panel-body.mid-twin {
+    height: 24vh;
+    overflow: auto;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.panel-body.mid-twin .list-group {
+    width:80%;
+}
+.panel-body.mid-twin .list-group .list-group-item {
+    margin:0.9vh 0px;
+    cursor: pointer;
+    border: none;
+    text-align: center;
+    border-bottom: 1px solid orangered;
+}
+.panel-body.mid-twin .list-group .list-group-item:hover {
+    border-bottom: 1px solid greenyellow;
+}
+.well-centered{
+    display:flex;
+    justify-content: center;
+    align-content: center;
+}

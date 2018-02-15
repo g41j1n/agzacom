@@ -61,7 +61,7 @@ const appRoutes: Routes = [
     HttpModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [EmpresasService, HeaderHandler, ServerService, AuthService, AuthGuard],
+  providers: [EmpresasService, ProcesosService, HeaderHandler, ServerService, AuthService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

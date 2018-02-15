@@ -1,34 +1,51 @@
 
 <div class="col-lg-12 well">
+      <div class="pageheader">
+          <strong>Contenido de empresa</strong>
+      </div>
   <div class="row">
-      <div class="page-header">
-          <h3>Contenido de empresa</h3>
+      <div class="badge">
+          <div *ngIf="!empresa">
+            <i class="fa fa-building fa-lg fa-fw"></i>
+            <div class="sidebox">
+                <div>Empresa</div>
+                <div>RFC</div>
+            </div>
+          </div>
+          <div *ngIf="empresa">
+            <img src="{{ logo }}" alt="" width="30">
+            <div class="sidebox">
+                <div>{{empresa}}</div>
+                <div>{{rfc}}</div>
+            </div>
+          </div>
       </div>
   </div>
   <div class="row">
-      <div class="well" *ngIf="empresa">
-          <p>{{empresa}}</p>
-          <p>{{status}}</p>
-      </div>
-  </div>
-  <div class="row">
-      <div class="col-sm-6">
+      <div class="col-sm-4">
           <div class="panel panel-primary">
               <div class="panel-heading">Periodos</div>
-              <div class="panel-body">
-                  <ul class="list-group">
-                      <li class="list-group-item">Periodo-1 <span class="label label-success pull-right">Completado</span></li>
-                      <li class="list-group-item">Periodo-2 <span class="label label-info pull-right">En curso</span></li> 
-                      <li class="list-group-item">Periodo-3 <span class="label label-danger pull-right">Pendiente</span></li> 
+              <div class="panel-body mid-twin">
+                  <div class="emptyMessage" *ngIf="!periodos">
+                      0 periodos disponibles
+                  </div>
+                  <ul class="list-group" *ngIf="periodos" >
+                      <li class="list-group-item" *ngFor="let periodo of periodos" (click)="onSelectPeriodoEmp(periodo.id)">
+                         <i class="fa fa-calendar fa-lg fa-fw"></i>  {{ periodo.Mes }} - {{periodo.Year}}
+                          <!-- <span class="label label-success pull-right">Completado</span> -->
+                        </li>
                   </ul>
               </div>
           </div>
       </div>
-      <div class="col-sm-6">
-          <div class="panel panel-primary">
+      <div class="col-sm-8">
+          <div class="panel panel-primary ">
               <div class="panel-heading">Procesos</div>
-              <div class="panel-body">
-                  <ul class="list-group">
+              <div class="panel-body mid-twin">
+                    <div class="emptyMessage" *ngIf="!procesos">
+                            0 procesos disponibles
+                    </div> 
+                  <ul class="list-group" *ngIf="procesos">
                       <li class="list-group-item">Proceso-1 <span class="label label-success pull-right">Completado</span></li>
                       <li class="list-group-item">Proceso-2 <span class="label label-info pull-right">En Curso</span></li> 
                       <li class="list-group-item">Proceso-3 <span class="label label-danger pull-right">Pendiente</span></li> 
